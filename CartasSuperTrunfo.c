@@ -1,98 +1,104 @@
+
+
 #include <stdio.h>
 
-
-     int popu1, pontosT1;
-     float area1,pib1;
-     float area2, pib2;
-     int pontosT2, popu2;
+struct Carta {
+    char estado[30];
+    char codigo[5];
+    char cidade[30];
+    int populacao;
+    float area;
+    float pib;
+    int pontosTuristicos;
+    float densidadePopulacional;
+    float pibPerCapita;
+};
 
 int main() {
-    printf("===carta1===\n");
-     printf("digite a populaçao da carta1: ");
-     scanf ("%d", &popu1);
-     
-     printf("digite a area da carta1:");
-     scanf("%f", &area1);
-      
-     printf("digite o pib da carta1:");
-     scanf("%f", &pib1);
-     printf("digite o numero de pontosT");
-     scanf("%d", &pontosT1);
+    struct Carta carta1, carta2;
 
-     printf ("digite a populçao da carta2: ");
-     scanf("%d", &popu2);
-     
-     printf("digite a area da carta2:");
-     scanf("%f", &area2);
+    printf("=== Cadastro da Carta 1 ===\n");
+    printf("Estado: ");
+    scanf(" %[^\n]", carta1.estado);
+    printf("Codigo da carta: ");
+    scanf(" %s", carta1.codigo);
+    printf("Nome da cidade: ");
+    scanf(" %[^\n]", carta1.cidade);
+    printf("Populacao: ");
+    scanf("%d", &carta1.populacao);
+    printf("Area (km²): ");
+    scanf("%f", &carta1.area);
+    printf("PIB (em bilhões): ");
+    scanf("%f", &carta1.pib);
+    printf("Numero de pontos turisticos: ");
+    scanf("%d", &carta1.pontosTuristicos);
 
-     printf("digite o pib da carta2: ");
-     scanf("%f", &pib2);
+    // Calcula os valores derivados
+    carta1.densidadePopulacional = carta1.populacao / carta1.area;
+    carta1.pibPerCapita = carta1.pib / carta1.populacao;
 
-     printf("digite os pontost da carta2: ");
-     scanf("%d",&pontosT2);
-      
-     input("\n codigo da carta1:");
-     input("nome da cidade:");
-     int (input(popu1));
-     float(area1);
-     float (pib1);
-      
-     densidade:popu1/area1;
-     pib:pib1/popu1;
+    printf("\n=== Cadastro da Carta 2 ===\n");
+    printf("Estado: ");
+    scanf(" %[^\n]", carta2.estado);
+    printf("Codigo da carta: ");
+    scanf(" %s", carta2.codigo);
+    printf("Nome da cidade: ");
+    scanf(" %[^\n]", carta2.cidade);
+    printf("Populacao: ");
+    scanf("%d", &carta2.populacao);
+    printf("Area (km²): ");
+    scanf("%f", &carta2.area);
+    printf("PIB (em bilhões): ");
+    scanf("%f", &carta2.pib);
+    printf("Numero de pontos turisticos: ");
+    scanf("%d", &carta2.pontosTuristicos);
 
-     input("\n codigo da carta2:");
-     input("nome da cidade:");
-     int (input(popu2));
-     float(area2);
-     float (pib2);
+    // Calcula os valores derivados
+    carta2.densidadePopulacional = carta2.populacao / carta2.area;
+    carta2.pibPerCapita = carta2.pib / carta2.populacao;
 
-     densidade2: popu2/area2;
-     pib:pib2/popu2;
+    // Exibe os resultados
+    printf("\n===== CARTA 1 =====\n");
+    printf("Estado: %s\n", carta1.estado);
+    printf("Codigo: %s\n", carta1.codigo);
+    printf("Cidade: %s\n", carta1.cidade);
+    printf("Populacao: %d\n", carta1.populacao);
+    printf("Area: %.2f km²\n", carta1.area);
+    printf("PIB: %.2f bilhoes\n", carta1.pib);
+    printf("Pontos Turisticos: %d\n", carta1.pontosTuristicos);
+    printf("Densidade Populacional: %.2f hab/km²\n", carta1.densidadePopulacional);
+    printf("PIB per capita: %.6f bilhoes/hab\n", carta1.pibPerCapita);
 
-        Carta c1, c2;
-        
-         printf("Digite o nome do país (Carta 1): ");
-    scanf(" %[^\n]", &c1.nome);
-    printf("População: ");
-    scanf("%lu", &c1.popu1);
-    printf("Área: ");
-    scanf("%f", &c1.area1);
-    printf("PIB: ");
-    scanf("%f", &c1.pib1);
-    printf("Pontos Turísticos: ");
-    scanf("%d", &c1.pontosT1);
+    printf("\n===== CARTA 2 =====\n");
+    printf("Estado: %s\n", carta2.estado);
+    printf("Codigo: %s\n", carta2.codigo);
+    printf("Cidade: %s\n", carta2.cidade);
+    printf("Populacao: %d\n", carta2.populacao);
+    printf("Area: %.2f km²\n", carta2.area);
+    printf("PIB: %.2f bilhoes\n", carta2.pib);
+    printf("Pontos Turisticos: %d\n", carta2.pontosTuristicos);
+    printf("Densidade Populacional: %.2f hab/km²\n", carta2.densidadePopulacional);
+    printf("PIB per capita: %.6f bilhoes/hab\n", carta2.pibPerCapita);
 
-        printf("Digite o nome do país (Carta 2): ");
-    scanf(" %[^\n]", c2.nome2);
-    printf("Popu2: ");
-    scanf("%lu", &c2.popu2);
-    printf("Área: ");
-    scanf("%f", &c1.area2);
-    printf("PIB: ");
-    scanf("%f", &c1.pib2);
-    printf("Pontos Turísticos: ");
-    scanf("%d", &c1.pontosT2);
+carta2.densidadePopulacional = carta2.populacao / carta2.area;
+    carta2.pibPerCapita = carta2.pib / carta2.populacao;
 
-        c1.densidade = calcularDensidade(c1.popu1, c1.area1);
-    c2.densidade = calcularDensidade(c2.popu2, c2.area2);
+    // ===== Comparação =====
+    printf("\n===== COMPARACAO =====\n");
+    printf("Atributo escolhido: Populacao\n");
 
+    printf("Carta 1 - %s (%s): %d habitantes\n", carta1.cidade, carta1.estado, carta1.populacao);
+    printf("Carta 2 - %s (%s): %d habitantes\n", carta2.cidade, carta2.estado, carta2.populacao);
 
-    c1.superPoder = calcularSuperPoder(c1);
-    c2.superPoder = calcularSuperPoder(c2);
+    if (carta1.populacao > carta2.populacao) {
+        printf("Resultado: Carta 1 (%s) venceu!\n", carta1.cidade);
+    } else if (carta2.populacao > carta1.populacao) {
+        printf("Resultado: Carta 2 (%s) venceu!\n", carta2.cidade);
+    } else {
+        printf("Resultado: Empate!\n");
 
-    printf("\n===== Comparação =====\n");
-    printf("População: %d\n", (c1.popu1 > c2.popu2));
-    printf("Área: %d\n", (c1.area1 > c2.area2));
-    printf("PIB: %d\n", (c1.pib1 > c2.pib2));
-    printf("Pontos Turísticos: %d\n", (c1.pontosT1 > c2.pontosT2));
-    printf("Densidade: %d\n", (c1.densidade < c2.densidade)); // menor vence
-    printf("Super Poder: %d\n", (c1.superPoder > c2.superPoder));
-
-    printf("\n===== Super Poder =====\n");
-    printf("%s: %.2f\n", c1.nome1, c1.superPoder);
-    printf("%s: %.2f\n", c2.nome2, c2.superPoder);
-
-
+    return 0;
+}
 
      
 
