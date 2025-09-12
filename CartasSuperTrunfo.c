@@ -102,5 +102,3 @@ carta2.densidadePopulacional = carta2.populacao / carta2.area;
 
      
 
-    return 0;
-}
